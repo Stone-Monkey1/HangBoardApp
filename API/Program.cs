@@ -1,15 +1,21 @@
+using System.Net.Http;
 using API.Data;
+using API.Extensions;
+using API.Interfaces;
+using API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DataContext>(options => 
-{
-    options.UseSqlite(builder.Configuration.GetConnectionString("Defaultconnection"));
-});
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 builder.Services.AddCors();
 
@@ -29,11 +35,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors(x => x.AllowAnyHeader()
-.AllowAnyMethod()
-.AllowCredentials()
-.WithOrigins("http://localhost:4200"));
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .WithOrigins("http://localhost:4200"));
 
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
