@@ -1,0 +1,13 @@
+
+body {
+    overflow: hidden;
+    background-image: url('https://res.cloudinary.com/dlryjpjaw/image/upload/v1647982557/BackgroundImage.2_goxa2t.png');
+    position: inherit;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-color: rgba(255, 123, 0, 0.363);
+}
+.container {
+    margin-top: 100px;
+}

@@ -1,0 +1,28 @@
+<div>
+    <p>Welcome to the workout creator template. Within the "Workout Description" box, you will find an example workout. That
+        box can be deleted and you can fill it with your own owrkout. You can hover over the different holds on the
+        hangboard to find their label number and description to assist with your creating. Enjoy!</p>
+</div>
+<app-hangboard1></app-hangboard1>
+
+<body>
+    <form>
+        <label for="wtitle">Workout Title</label><br>
+        <input class="wtitle" type="text" id="wtitle" name="wtitle"><br>
+        <label class="workoutDescription" for="workout">Workout Description</label><br>
+
+        <div id="workout" class="list-wrap" contenteditable="true">
+
+            <div class="list">
+                <div>My first item</div>
+                <div>My second item</div>
+                <div>My third item</div>
+            </div>
+        </div>
+    </form>
+    <div class="form-group text-left">
+        <button class="btn btn-success mr-5" type="submit">Save Personal Workout</button>
+        <button class="btn btn-primary mr-5" type="submit">Save + Publish Workout</button>
+        <button class="btn btn-danger mr-2" type="cancel">Cancel</button>
+    </div>
+</body>
